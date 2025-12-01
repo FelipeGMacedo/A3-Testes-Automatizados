@@ -88,6 +88,7 @@ Testes que validam o comportamento do sistema com entradas inválidas.
    - Você pode fazer isso de duas formas:
      - Duplo clique no arquivo `testes.html`
      - Clique com botão direito → "Abrir com" → Selecione seu navegador
+   - **Importante**: Os arquivos `regras.js` e `testes.js` serão carregados automaticamente
 
 3. **Visualize os resultados**:
    - O Jasmine irá executar automaticamente todos os testes
@@ -108,9 +109,11 @@ Testes que validam o comportamento do sistema com entradas inválidas.
 ## 📁 Estrutura do Projeto
 
 ```
-a3/
-├── index.html      # Página principal do projeto
-├── testes.html     # Arquivo com os testes automatizados Jasmine
+A3-Testes-Automatizados/
+├── index.html      # Página principal com interface do sistema de votação
+├── testes.html     # Página para execução dos testes automatizados Jasmine
+├── regras.js       # Lógica do sistema (classe SistemaVotacao e funções)
+├── testes.js       # Suíte de testes Jasmine (10 specs organizados)
 └── README.md       # Este arquivo de documentação
 ```
 
@@ -118,9 +121,10 @@ a3/
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5**: Estrutura da página de testes
-- **JavaScript (ES6)**: Implementação da classe `SistemaVotacao`
+- **HTML5**: Estrutura das páginas web
+- **JavaScript (ES6)**: Implementação da classe `SistemaVotacao` e lógica do sistema
 - **Jasmine 4.5.0**: Framework de testes BDD (Behavior-Driven Development)
+- **Arquitetura Modular**: Separação de responsabilidades (lógica em `regras.js` e testes em `testes.js`)
 
 ---
 
