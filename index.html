@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Votação - Execução</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; text-align: center; }
+        .resultado { margin-top: 20px; font-weight: bold; font-size: 1.2em; color: #2c3e50; }
+        input { padding: 10px; font-size: 1em; }
+        button { padding: 10px 20px; font-size: 1em; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px;}
+    </style>
+</head>
+<body>
+
+    <h1>Verificador de Votação</h1>
+    <p>Digite sua idade para saber a situação eleitoral:</p>
+    
+    <input type="number" id="inputIdade" placeholder="Ex: 18">
+    <button onclick="executarVerificacao()">Verificar</button>
+
+    <div id="resultadoTexto" class="resultado"></div>
+
+    <script>
+        // --- LÓGICA DO SISTEMA (A CLASSE) ---
+        class SistemaVotacao {
+            verificarStatus(idade) {
+                if (idade < 0 || idade > 130) return 'Idade Inválida';
+                if (idade < 16) return 'Não pode votar';
+                if (idade >= 18 && idade <= 70) return 'Voto Obrigatório';
+                return 'Voto Facultativo';
+            }
+        }
+
+        // --- INTERAÇÃO COM A PÁGINA ---
+        function executarVerificacao() {
+            // 1. Pega o valor do input
+            const idade = parseInt(document.getElementById('inputIdade').value);
+            
+            // 2. Instancia a classe
+            const sistema = new SistemaVotacao();
+            
+            // 3. Executa a lógica
+            const resultado = sistema.verificarStatus(idade);
+            
+            // 4. Mostra na tela
+            document.getElementById('resultadoTexto').innerText = "Resultado: " + resultado;
+        }
+    </script>
+</body>
+</html>
